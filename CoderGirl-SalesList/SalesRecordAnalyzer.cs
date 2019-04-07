@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CoderGirl_SalesList
 {
-    class Tinker : ISalesRecordAnalyzer
+    class SalesRecordAnalyzer : ISalesRecordAnalyzer
     {
         public bool AreOrderDatesBefore(DateTime cutoffDate, List<SalesRecord> salesRecords)
         {
@@ -24,8 +24,8 @@ namespace CoderGirl_SalesList
             //    country = item.ToString();
             //    uniqueCountries.Add(country);
             //}
-
-
+            
+            
         }
 
         public int GetCountryCount(List<SalesRecord> salesRecords)
@@ -41,14 +41,14 @@ namespace CoderGirl_SalesList
 
             return salesRecords.Max(p => p.TotalProfit);
 
-
+            
         }
 
         public decimal GetTotalRevenue(List<SalesRecord> salesRecords)
         {
 
             return salesRecords.Sum(p => p.TotalRevenue);
-
+            
         }
 
         public List<SalesRecord> OrderByShipDate(List<SalesRecord> salesRecords)
@@ -56,7 +56,7 @@ namespace CoderGirl_SalesList
 
             return salesRecords.OrderBy(p => p.ShipDate).ToList();
 
-
+            
         }
 
         public List<SalesRecord> OrderByUnitsSoldDescending(List<SalesRecord> salesRecords)
@@ -64,7 +64,7 @@ namespace CoderGirl_SalesList
 
             return salesRecords.OrderByDescending(p => p.UnitsSold).ToList();
 
-
+            
         }
     }
 }

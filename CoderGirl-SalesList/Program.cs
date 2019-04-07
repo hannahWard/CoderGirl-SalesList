@@ -18,30 +18,33 @@ namespace CoderGirl_SalesList
 
         private void Run()
         {
-            List<SalesRecord> salesRecords = GetSalesRecordsFromFileData();
-            int countNorthAmerica = GetCountForNorthAmerica(salesRecords);
-            Console.WriteLine(countNorthAmerica);
+            
+
+
+            //List<SalesRecord> salesRecords = GetSalesRecordsFromFileData();
+            //int countNorthAmerica = GetCountForNorthAmerica(salesRecords);
+            //Console.WriteLine(countNorthAmerica);
         }
 
-        private int GetCountForNorthAmerica(List<SalesRecord> salesRecords)
-        {
-            int count = 0;
-            foreach (SalesRecord record in salesRecords)
-            {
-                if (record.Region == "North America")
-                {
-                    count++;
-                }
-            }
-            int[] something = new int[5];
-            something.TakeLast(4);
+        //private int GetCountForNorthAmerica(List<SalesRecord> salesRecords)
+        //{
+        //    int count = 0;
+        //    foreach (SalesRecord record in salesRecords)
+        //    {
+        //        if (record.Region == "North America")
+        //        {
+        //            count++;
+        //        }
+        //    }
+        //    int[] something = new int[5];
+        //    something.TakeLast(4);
 
-            List<string> stringList = new List<string>();
-            stringList.Select(item => int.Parse(item)).ToList();
-            return count;
-        }
+        //    List<string> stringList = new List<string>();
+        //    stringList.Select(item => int.Parse(item)).ToList();
+        //    return count;
+        //}
 
-        private List<SalesRecord> GetSalesRecordsFromFileData()
+        private List<SalesRecord> GetSalesRecordsFromCsvFile()
         {
             List<SalesRecord> salesRecords = new List<SalesRecord>();
             bool isFirstRow = true;
@@ -61,6 +64,7 @@ namespace CoderGirl_SalesList
 
         private SalesRecord CreateSalesRecord(string line)
         {
+
             SalesRecord salesRecord = new SalesRecord();
             string[] properties = line.Split(",");
             salesRecord.Region = properties[0];
@@ -69,6 +73,15 @@ namespace CoderGirl_SalesList
             salesRecord.SalesChannel = properties[3];
             salesRecord.OrderPriority = properties[4];
             salesRecord.OrderDate = DateTime.Parse(properties[5]);
+            salesRecord.OrderID = decimal.Parse(properties[6]);
+            salesRecord.ShipDate = DateTime.Parse(properties[7]);
+            salesRecord.UnitsSold = decimal.Parse(properties[8]);
+            salesRecord.UnitPrice = decimal.Parse(properties[9]);
+            salesRecord.UnitCost = decimal.Parse(properties[10]);
+            salesRecord.TotalRevenue = decimal.Parse(properties[11]);
+            salesRecord.TotalCost = decimal.Parse(properties[12]);
+            salesRecord.TotalProfit = decimal.Parse(properties[13]);
+
 
             return salesRecord;
         }
