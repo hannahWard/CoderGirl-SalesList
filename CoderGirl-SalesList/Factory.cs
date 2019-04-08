@@ -11,12 +11,16 @@ namespace CoderGirl_SalesList
 
         public Factory()
         {
+            
 
+            this.SalesRecordAdapter = new SalesRecordAdapter();
+
+            this.SalesRecordAnalyzer = new SalesRecordAnalyzer();
 
 
             //TODO: Add specific implementation classes
             //this.SalesRecordAdapter = new ??
-            this.SalesRecordAnalyzer = new Tinker();
+            //this.SalesRecordAnalyzer = new Tinker();
         }
     }
 }

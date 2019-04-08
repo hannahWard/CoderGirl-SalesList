@@ -9,30 +9,21 @@ namespace CoderGirl_SalesList
     {
         public bool AreOrderDatesBefore(DateTime cutoffDate, List<SalesRecord> salesRecords)
         {
-            bool results = salesRecords.Any(record => record.OrderDate > cutoffDate);
+            return salesRecords.Any(record => record.OrderDate < cutoffDate);
 
-            return results;
         }
 
         public List<string> GetCountries(List<SalesRecord> salesRecords)
         {
             return salesRecords.Select(p => p.Country).Distinct().ToList();
-            //List<string> uniqueCountries = findCountries.ForEach(p => )
-            //string country = "";
-            //foreach (SalesRecord item in findCountries)
-            //{
-            //    country = item.ToString();
-            //    uniqueCountries.Add(country);
-            //}
-            
-            
+          
         }
 
         public int GetCountryCount(List<SalesRecord> salesRecords)
         {
             List<string> findCountries = salesRecords.Select(p => p.Country).Distinct().ToList();
 
-            return findCountries.Count();
+            return findCountries.Count() - 1;
 
         }
 

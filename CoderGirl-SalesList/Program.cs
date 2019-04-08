@@ -75,7 +75,7 @@ namespace CoderGirl_SalesList
             salesRecord.OrderDate = DateTime.Parse(properties[5]);
             salesRecord.OrderID = decimal.Parse(properties[6]);
             salesRecord.ShipDate = DateTime.Parse(properties[7]);
-            salesRecord.UnitsSold = decimal.Parse(properties[8]);
+            salesRecord.UnitsSold = int.Parse(properties[8]);
             salesRecord.UnitPrice = decimal.Parse(properties[9]);
             salesRecord.UnitCost = decimal.Parse(properties[10]);
             salesRecord.TotalRevenue = decimal.Parse(properties[11]);
